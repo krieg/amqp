@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net"
+	"os"
 	"runtime"
 	"time"
 
@@ -200,7 +201,8 @@ func ExampleChannel_Confirm_bridge() {
 
 func ExampleChannel_Consume() {
 	// Connects opens an AMQP connection from the credentials in the URL.
-	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	//conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	conn, err := amqp.Dial(os.Getenv("AMQP_URL"))
 	if err != nil {
 		log.Fatalf("connection.open: %s", err)
 	}
@@ -318,7 +320,8 @@ func ExampleChannel_Consume() {
 
 func ExampleChannel_Publish() {
 	// Connects opens an AMQP connection from the credentials in the URL.
-	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	//conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	conn, err := amqp.Dial(os.Getenv("AMQP_URL"))
 	if err != nil {
 		log.Fatalf("connection.open: %s", err)
 	}
@@ -371,7 +374,8 @@ func ExampleConnection_NotifyBlocked() {
 	// Test this by tuning your server to have a low memory watermark:
 	// rabbitmqctl set_vm_memory_high_watermark 0.00000001
 
-	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	//conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	conn, err := amqp.Dial(os.Getenv("AMQP_URL"))
 	if err != nil {
 		log.Fatalf("connection.open: %s", err)
 	}

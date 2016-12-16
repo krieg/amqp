@@ -8,6 +8,7 @@ package amqp
 import (
 	"bytes"
 	"io"
+	"os"
 	"reflect"
 	"testing"
 	"time"
@@ -26,7 +27,8 @@ type server struct {
 }
 
 func defaultConfig() Config {
-	return Config{SASL: []Authentication{&PlainAuth{"guest", "guest"}}, Vhost: "/"}
+	//return Config{SASL: []Authentication{&PlainAuth{"guest", "guest"}}, Vhost: "/"}
+	return Config{SASL: []Authentication{&PlainAuth{os.Getenv("RMQ_U"), os.Getenv("RMQ_PW")}}, Vhost: "/"}
 }
 
 func newSession(t *testing.T) (io.ReadWriteCloser, *server) {

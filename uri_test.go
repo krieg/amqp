@@ -42,7 +42,7 @@ var uriTests = []testURI{
 		host:     defaultURI.Host,
 		port:     defaultURI.Port,
 		vhost:    defaultURI.Vhost,
-		canon:    "amqp://localhost/",
+		canon:    "amqp://verzeichnis-dev.its.utexas.edu/",
 	},
 
 	{
@@ -52,7 +52,7 @@ var uriTests = []testURI{
 		host:     defaultURI.Host,
 		port:     defaultURI.Port,
 		vhost:    defaultURI.Vhost,
-		canon:    "amqp://:@localhost/",
+		canon:    "amqp://:@verzeichnis-dev.its.utexas.edu/",
 	},
 
 	{
@@ -62,7 +62,7 @@ var uriTests = []testURI{
 		host:     defaultURI.Host,
 		port:     defaultURI.Port,
 		vhost:    defaultURI.Vhost,
-		canon:    "amqp://user@localhost/",
+		canon:    "amqp://user@verzeichnis-dev.its.utexas.edu/",
 	},
 
 	{
@@ -72,17 +72,17 @@ var uriTests = []testURI{
 		host:     defaultURI.Host,
 		port:     defaultURI.Port,
 		vhost:    defaultURI.Vhost,
-		canon:    "amqp://user:pass@localhost/",
+		canon:    "amqp://user:pass@verzeichnis-dev.its.utexas.edu/",
 	},
 
 	{
-		url:      "amqp://guest:pass@",
-		username: "guest",
+		url:      "amqp://beveren:pass@",
+		username: "beveren",
 		password: "pass",
 		host:     defaultURI.Host,
 		port:     defaultURI.Port,
 		vhost:    defaultURI.Vhost,
-		canon:    "amqp://guest:pass@localhost/",
+		canon:    "amqp://beveren:pass@verzeichnis-dev.its.utexas.edu/",
 	},
 
 	{
@@ -102,7 +102,7 @@ var uriTests = []testURI{
 		host:     defaultURI.Host,
 		port:     10000,
 		vhost:    defaultURI.Vhost,
-		canon:    "amqp://localhost:10000/",
+		canon:    "amqp://verzeichnis-dev.its.utexas.edu:10000/",
 	},
 
 	{
@@ -112,7 +112,7 @@ var uriTests = []testURI{
 		host:     defaultURI.Host,
 		port:     defaultURI.Port,
 		vhost:    "vhost",
-		canon:    "amqp://localhost/vhost",
+		canon:    "amqp://verzeichnis-dev.its.utexas.edu/vhost",
 	},
 
 	{
@@ -192,7 +192,7 @@ var uriTests = []testURI{
 		host:     defaultURI.Host,
 		port:     schemePorts["amqps"],
 		vhost:    defaultURI.Vhost,
-		canon:    "amqps://localhost/",
+		canon:    "amqps://verzeichnis-dev.its.utexas.edu/",
 	},
 
 	{
@@ -262,7 +262,7 @@ func TestURIDefaults(t *testing.T) {
 		t.Fatal("Could not parse")
 	}
 
-	if uri.String() != "amqp://localhost/" {
+	if uri.String() != "amqp://verzeichnis-dev.its.utexas.edu/" {
 		t.Fatal("Defaults not encoded properly got:", uri.String())
 	}
 }

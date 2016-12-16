@@ -9,6 +9,7 @@ import (
 	"errors"
 	"fmt"
 	"net/url"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -20,12 +21,22 @@ var schemePorts = map[string]int{
 	"amqps": 5671,
 }
 
+/*
 var defaultURI = URI{
 	Scheme:   "amqp",
 	Host:     "localhost",
 	Port:     5672,
 	Username: "guest",
 	Password: "guest",
+	Vhost:    "/",
+}
+*/
+var defaultURI = URI{
+	Scheme:   "amqp",
+	Host:     "verzeichnis-dev.its.utexas.edu",
+	Port:     5672,
+	Username: os.Getenv("RMQ_U"),
+	Password: os.Getenv("RMQ_PW"),
 	Vhost:    "/",
 }
 
